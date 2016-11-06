@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Image, Table, Glyphicon, Row, Col, Panel } from 'react-bootstrap';
+import Api from './Api';
 import './App.css';
 const DateDiff = require('date-diff');
-const data = require('./data.json');
 
 var calculateActiveSeconds = function (dateString) {
     var diff = new DateDiff(new Date(), new Date(dateString));
@@ -10,27 +10,27 @@ var calculateActiveSeconds = function (dateString) {
     return parseInt(diff.seconds(), 10);
 };
 
-var calculateCredit = function (totalPaid, dateString) {
+var calculateCredit = function (totalPaid, dateString, spotifyInfo) {
     var diff = new DateDiff(new Date(), new Date(dateString));
 
-    return totalPaid - data.spotifyFamily.cost / data.spotifyFamily.nComponents * diff.months();
+    return totalPaid - spotifyInfo.cost / spotifyInfo.nComponents * diff.months();
 };
 
-var decorateMembers = function (peopleRaw) {
-    const people = [];
+var decorateMembers = function (peopleRaw, spotifyInfo) {
+    const members = [];
     for (let i = 0; i < peopleRaw.length; i++) {
         const totalPaid = typeof peopleRaw[i].paid === 'object' ? peopleRaw[i].paid.reduce((a, b) => a + b, 0) : 0;
-        people.push({
+        members.push({
             name: peopleRaw[i].name,
             statusIcon: peopleRaw[i].active ? 'ok' : 'remove',
             emailAvatar: peopleRaw[i].emailAvatar,
             totalPaid: totalPaid,
             activeDays: calculateActiveSeconds(peopleRaw[i].activeFrom),
-            credit: calculateCredit(totalPaid, peopleRaw[i].activeFrom)
+            credit: calculateCredit(totalPaid, peopleRaw[i].activeFrom, spotifyInfo)
         });
     }
 
-    return people;
+    return members;
 };
 
 function MoneyFormatter(props) {
@@ -66,14 +66,34 @@ function TBody(props) {
     );
 }
 
-class App extends Component {
-    render() {
+var App = React.createClass({
+
+    getInitialState: function() {
+        return {
+            familyOwnerData: {emailAvatar: '', name: ''},
+            familyMembersData: [],
+            spotifyInfo: {cost: 0, nComponents: 0},
+        }
+    },
+
+    componentDidMount: function () {
+        var _this = this;
+        Api.getData().then(function (result) {
+            _this.setState({
+                familyOwnerData: result.familyOwner,
+                familyMembersData: result.familyMembers,
+                spotifyInfo: result.spotifyInfo,
+            });
+        })
+    },
+
+    render: function() {
         return (
             <Row className="show-grid">
                 <Col xs={12}>
                     <Panel className="text-center panel-info">
                         Family owner <br/>
-                        <Gravatar email={data.familyOwner.emailAvatar} circle /> {data.familyOwner.name}
+                        <Gravatar email={this.state.familyOwnerData.emailAvatar} circle /> {this.state.familyOwnerData.name}
                     </Panel>
                 </Col>
                 <Col xs={12}>
@@ -88,12 +108,12 @@ class App extends Component {
                             <th>Credit/Debit</th>
                         </tr>
                         </thead>
-                        <TBody data={decorateMembers(data.familyMembers)}/>
+                        <TBody data={decorateMembers(this.state.familyMembersData, this.state.spotifyInfo)}/>
                     </Table>
                 </Col>
             </Row>
         );
     }
-}
+});
 
 export default App;
