@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ $0 != 'bin/node_bash' ]; then
+    echo ''
+    echo '      Start from project root: bin/node_bash'
+    echo ''
+    exit 1
+fi
+
+WORKDIR=$(pwd)
+
+docker run \
+    --rm \
+    -i \
+    -t \
+    -u iacopo \
+    -v $WORKDIR/app:/var/www/app \
+    -w /var/www/app \
+    -p 3000:3000 \
+    iacopo/node-bower-grunt \
+    bash $@
