@@ -5,40 +5,40 @@
   },
   "familyOwner": {
     "name": "Iacopo",
-    "emailAvatar": "iacopo.pancotti@facile.it"
+    "emailAvatar": ""
   },
   "familyMembers": [
     {
       "name": "Luca",
-      "emailAvatar": "luca.boeri@facile.it",
+      "emailAvatar": "",
       "activeFrom": "2016-09-01",
       "active": true,
       "paid": [10]
     },
     {
       "name": "Alessandro aka Sandro",
-      "emailAvatar": "alessandro.galli@facile.it",
+      "emailAvatar": "",
       "activeFrom": "2016-09-01",
       "active": true,
       "paid": [29.98]
     },
     {
       "name": "Mario",
-      "emailAvatar": "mario.maraone@facile.it",
+      "emailAvatar": "",
       "activeFrom": "2016-09-01",
       "active": true,
       "paid": [2,3]
     },
     {
       "name": "Salvatore",
-      "emailAvatar": "salvatore.cordiano@facile.it",
+      "emailAvatar": "",
       "activeFrom": "2016-09-01",
       "active": true,
       "paid": [29.98]
     },
     {
       "name": "Giulia",
-      "emailAvatar": "giulia.pennacchioni@gmail.com",
+      "emailAvatar": "",
       "activeFrom": "2016-11-01",
       "active": true,
       "paid": [29.98]
