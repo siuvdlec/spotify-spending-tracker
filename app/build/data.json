@@ -20,7 +20,7 @@
       "emailHash": "d9b386ec082da4173b8b03a2585478b0",
       "activeFrom": "2016-09-01",
       "active": true,
-      "paid": [30]
+      "paid": [30,5]
     },
     {
       "name": "Mario",
