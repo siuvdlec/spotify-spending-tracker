@@ -34,7 +34,7 @@
       "emailHash": "d15601be09792f84685301aa57d38ded",
       "activeFrom": "2016-09-01",
       "active": true,
-      "paid": [30]
+      "paid": [30,30]
     },
     {
       "name": "Giulia",
