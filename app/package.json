@@ -2,7 +2,7 @@
   "name": "spotify-spending-tracker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://cdn.rawgit.com/pasix/spotify-spending-tracker/master/app/build",
+  "homepage": "https://cdn.jsdelivr.net/gh/pasix/spotify-spending-tracker/app/build",
   "devDependencies": {
     "react-scripts": "0.7.0"
   },
