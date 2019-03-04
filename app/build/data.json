@@ -19,7 +19,7 @@
       "name": "Ale",
       "emailHash": "d9b386ec082da4173b8b03a2585478b0",
       "activeFrom": "2016-09-01",
-      "active": true,
+      "active": false,
       "paid": [30,5,10,10,20]
     },
     {
