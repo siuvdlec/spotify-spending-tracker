@@ -37,6 +37,13 @@
       "paid": [30,30,30]
     },
     {
+      "name": "Andrea",
+      "emailHash": "f7160885da282fb2dc8e6a8f8ac21a6d",
+      "activeFrom": "2019-03-06",
+      "active": true,
+      "paid": []
+    },
+    {
       "name": "Giulia",
       "emailHash": "9a96a4a99041f9ad39106a7ab18bc097",
       "activeFrom": "2016-11-01",
