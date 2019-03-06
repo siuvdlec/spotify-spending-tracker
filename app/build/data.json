@@ -19,6 +19,7 @@
       "name": "Ale",
       "emailHash": "d9b386ec082da4173b8b03a2585478b0",
       "activeFrom": "2016-09-01",
+      "activeTo": "2019-03-01",
       "active": false,
       "paid": [30,5,10,10,20]
     },
@@ -35,6 +36,13 @@
       "activeFrom": "2016-09-01",
       "active": true,
       "paid": [30,30,30]
+    },
+    {
+      "name": "Andrea",
+      "emailHash": "f7160885da282fb2dc8e6a8f8ac21a6d",
+      "activeFrom": "2019-03-06",
+      "active": true,
+      "paid": []
     },
     {
       "name": "Giulia",
