@@ -13,22 +13,14 @@
       "emailHash": "9978fa73eee88c8227e6ef16a1bad626",
       "activeFrom": "2016-09-01",
       "active": true,
-      "paid": [10,30,30]
-    },
-    {
-      "name": "Ale",
-      "emailHash": "d9b386ec082da4173b8b03a2585478b0",
-      "activeFrom": "2016-09-01",
-      "activeTo": "2019-03-01",
-      "active": false,
-      "paid": [30,5,10,10,20]
+      "paid": [10,30,30,40]
     },
     {
       "name": "Mario",
       "emailHash": "3eb9185873ffe2e0ef3b0850ce9b5d9a",
       "activeFrom": "2016-09-01",
       "active": true,
-      "paid": [2,3,10,10,10,20]
+      "paid": [2,3,10,10,10,20,20]
     },
     {
       "name": "Salvo",
@@ -42,7 +34,7 @@
       "emailHash": "f7160885da282fb2dc8e6a8f8ac21a6d",
       "activeFrom": "2019-03-06",
       "active": true,
-      "paid": []
+      "paid": [8.74]
     },
     {
       "name": "Giulia",
