@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/spotify-spending-tracker/static/css/main.49995be5.css",
+    "main.js": "/spotify-spending-tracker/static/js/main.3a0ea4ac.js",
+    "index.html": "/spotify-spending-tracker/index.html",
+    "main.49995be5.css.map": "/spotify-spending-tracker/static/css/main.49995be5.css.map",
+    "main.3a0ea4ac.js.map": "/spotify-spending-tracker/static/js/main.3a0ea4ac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.49995be5.css",
+    "static/js/main.3a0ea4ac.js"
+  ]
+}
