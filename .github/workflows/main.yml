@@ -15,7 +15,7 @@ jobs:
       - name: "Github Pages Deployment"
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy -u "github-actions-bot <support+actions@github.com>"
-        if: ${{ github.ref == 'refs/heads/master' }} # only deploy master
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+        if: ${{ github.ref == 'refs/heads/master' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
