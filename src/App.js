@@ -10,8 +10,8 @@ function pipe() {
   return ret;
 }
 
-function calculateActiveSeconds(activeFrom) {
-  return parseInt(new DateDiff(new Date(), new Date(activeFrom)).seconds(), 10);
+function calculateActiveTime(activeFrom) {
+  return new DateDiff(new Date(), activeFrom).months();
 }
 
 function sum(a) {
@@ -25,9 +25,10 @@ function calculateDebit({ from, to, amount, components }) {
 function calculateTotalDebit(activeFrom, spotifyCosts) {
   return pipe(
     spotifyCosts
+      .filter((sc) => sc.to === null || sc.to.getTime() > activeFrom.getTime())
       .map((sc) => ({
-        from: new Date(sc.from ?? activeFrom),
-        to: sc.to ? new Date(sc.to) : new Date(),
+        from: sc.from.getTime() > activeFrom.getTime() ? sc.from : activeFrom,
+        to: sc.to ?? new Date(),
         amount: sc.amount,
         components: sc.components,
       }))
@@ -38,22 +39,21 @@ function calculateTotalDebit(activeFrom, spotifyCosts) {
 
 function progress(totalPaid, activeFrom, spotifyCosts) {
   return {
-    activeSeconds: calculateActiveSeconds(activeFrom),
+    activeTime: calculateActiveTime(activeFrom),
     credit: totalPaid - calculateTotalDebit(activeFrom, spotifyCosts),
   };
 }
 
 function Situation({ paid, activeFrom, spotifyCosts }) {
   const totalPaid = pipe(paid, sum);
-  const [{ activeSeconds, credit }, setProgress] = useState(() =>
+  const [{ activeTime, credit }, setProgress] = useState(() =>
     progress(totalPaid, activeFrom, spotifyCosts)
   );
 
   useEffect(() => {
     const id = setInterval(() => {
       pipe(progress(totalPaid, activeFrom, spotifyCosts), setProgress);
-    }, 1000);
-
+    }, 10000);
     return () => {
       clearInterval(id);
     };
@@ -61,8 +61,8 @@ function Situation({ paid, activeFrom, spotifyCosts }) {
 
   return (
     <>
-      <div className="seconds d">Seconds</div>
-      <div className="seconds-v v">{activeSeconds}</div>
+      <div className="time d">Months</div>
+      <div className="time-v v">{activeTime}</div>
       <div className="paid d">Paid</div>
       <div className="paid-v v">
         <Money value={totalPaid} />

@@ -25,8 +25,8 @@ h1 {
   gap: 2px 2px;
   grid-auto-flow: row;
   grid-template-areas:
-    "avatar seconds paid credit"
-    "avatar second-v paid-v credit-v";
+    "avatar time paid credit"
+    "avatar time-v paid-v credit-v";
 }
 
 .avatar {
@@ -40,8 +40,8 @@ h1 {
   padding: 4px 10px 0;
 }
 
-.seconds {
-  grid-area: seconds;
+.time {
+  grid-area: time;
 }
 
 .paid {
@@ -78,7 +78,7 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas:
-      "avatar seconds second-v"
+      "avatar time time-v"
       "avatar  paid paid-v"
       "avatar  credit credit-v";
   }
