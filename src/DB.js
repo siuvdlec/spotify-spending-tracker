@@ -10,6 +10,12 @@ export const data = {
       amount: 15.99,
       components: 6,
       from: new Date("2021-02-01T00:00:00"),
+      to: new Date("2023-08-31T23:59:59"),
+    },
+    {
+      amount: 17.99,
+      components: 6,
+      from: new Date("2023-09-01T00:00:00"),
       to: null,
     },
   ],
