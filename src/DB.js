@@ -24,7 +24,7 @@ export const data = {
       name: "Luca",
       emailHash: "9978fa73eee88c8227e6ef16a1bad626",
       activeFrom: new Date("2016-09-01T00:00:00"),
-      paid: [10, 30, 30, 40, 30, 30, 100],
+      paid: [10, 30, 30, 40, 30, 30, 100, 100],
     },
     {
       name: "Mario",
