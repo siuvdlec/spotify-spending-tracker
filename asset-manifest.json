@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/spotify-spending-tracker/static/css/main.ca53c718.css",
-    "main.js": "/spotify-spending-tracker/static/js/main.d30e0a65.js",
+    "main.js": "/spotify-spending-tracker/static/js/main.4ab30109.js",
     "index.html": "/spotify-spending-tracker/index.html",
     "main.ca53c718.css.map": "/spotify-spending-tracker/static/css/main.ca53c718.css.map",
-    "main.d30e0a65.js.map": "/spotify-spending-tracker/static/js/main.d30e0a65.js.map"
+    "main.4ab30109.js.map": "/spotify-spending-tracker/static/js/main.4ab30109.js.map"
   },
   "entrypoints": [
     "static/css/main.ca53c718.css",
-    "static/js/main.d30e0a65.js"
+    "static/js/main.4ab30109.js"
   ]
 }
