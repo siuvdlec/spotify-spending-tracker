@@ -16,6 +16,12 @@ export const data = {
       amount: 17.99,
       components: 6,
       from: new Date("2023-09-01T00:00:00"),
+      to: new Date("2025-08-31T23:59:59"),
+    },
+    {
+      amount: 20.99,
+      components: 6,
+      from: new Date("2025-09-01T00:00:00"),
       to: null,
     },
   ],
@@ -39,10 +45,10 @@ export const data = {
       paid: [30, 30, 30, 25, 30, 30, 30, 44, 30, 40],
     },
     {
-      name: "Andrea",
-      emailHash: "f7160885da282fb2dc8e6a8f8ac21a6d",
-      activeFrom: new Date("2019-03-06T00:00:00"),
-      paid: [8.74, 40, 30, 30, 30, 30, 30],
+      name: "Ilario",
+      emailHash: "e12a9f05955003821d1449b3d2f9e6ce",
+      activeFrom: new Date("2025-02-22T00:00:00"),
+      paid: [5.83, 30],
     },
   ],
 };
