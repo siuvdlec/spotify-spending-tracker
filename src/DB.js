@@ -48,7 +48,7 @@ export const data = {
       name: "Ilario",
       emailHash: "e12a9f05955003821d1449b3d2f9e6ce",
       activeFrom: new Date("2025-02-22T00:00:00"),
-      paid: [5.83, 30],
+      paid: [5.83, 30, 42],
     },
   ],
 };
