@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./app.css";
 import DateDiff from "date-diff";
 
-function pipe() {
+export function pipe() {
   let ret = arguments[0];
   for (let i = 1; i < arguments.length; i++) {
     ret = arguments[i](ret);
@@ -10,34 +10,35 @@ function pipe() {
   return ret;
 }
 
-function calculateActiveTime(activeFrom) {
-  return new DateDiff(new Date(), activeFrom).months();
+export function calculateActiveTime(activeFrom) {
+  return Math.max(0, new DateDiff(new Date(), activeFrom).months());
 }
 
-function sum(a) {
+export function sum(a) {
   return a.reduce((a, b) => a + b, 0);
 }
 
-function calculateDebit({ from, to, amount, components }) {
+export function calculateDebit({ from, to, amount, components }) {
   return (amount / components) * new DateDiff(to, from).months();
 }
 
-function calculateTotalDebit(activeFrom, spotifyCosts) {
+export function calculateTotalDebit(activeFrom, spotifyCosts) {
+  const now = new Date();
   return pipe(
     spotifyCosts
-      .filter((sc) => sc.to === null || sc.to.getTime() > activeFrom.getTime())
       .map((sc) => ({
         from: sc.from.getTime() > activeFrom.getTime() ? sc.from : activeFrom,
-        to: sc.to ?? new Date(),
+        to: sc.to !== null && sc.to.getTime() < now.getTime() ? sc.to : now,
         amount: sc.amount,
         components: sc.components,
       }))
+      .filter(({ from, to }) => from.getTime() < to.getTime())
       .map(calculateDebit),
     sum
   );
 }
 
-function progress(totalPaid, activeFrom, spotifyCosts) {
+export function progress(totalPaid, activeFrom, spotifyCosts) {
   return {
     activeTime: calculateActiveTime(activeFrom),
     credit: totalPaid - calculateTotalDebit(activeFrom, spotifyCosts),
@@ -82,7 +83,7 @@ function Money({ value }) {
 function Gravatar({ emailHash }) {
   return (
     <img
-      src={`https://www.gravatar.com/avatar/${emailHash}?s=30&d=identicon`}
+      src={`https://www.gravatar.com/avatar/${emailHash}?s=80&d=identicon`}
     />
   );
 }

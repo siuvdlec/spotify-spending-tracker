@@ -3,34 +3,32 @@
   "version": "0.1.0",
   "author": "siuvdlec@gmail.com",
   "license": "MIT",
+  "type": "module",
   "homepage": "http://siuvdlec.github.io/spotify-spending-tracker",
-  "devDependencies": {
-    "react-scripts": "^5.0.1"
-  },
   "dependencies": {
     "date-diff": "^1.0.2",
-    "gh-pages": "^4.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "gh-pages": "^6.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "lint": "eslint .",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@vitejs/plugin-react": "^6.2.1",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "jsdom": "^30.1.3",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
   }
 }

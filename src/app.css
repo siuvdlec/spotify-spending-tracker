@@ -1,28 +1,47 @@
 :root {
+  color-scheme: light dark;
   font-size: 16px;
   font-family: "IBM Plex Mono", monospace;
+
+  --page: light-dark(#f5f5f7, #0f0f10);
+  --surface: light-dark(#ffffff, #1c1c1e);
+  --text: light-dark(#1d1d1f, #f5f5f7);
+  --muted: light-dark(#6b6b70, #a0a0a6);
+  --border: light-dark(rgb(0 0 0 / 8%), rgb(255 255 255 / 10%));
+  --shadow: light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 30%));
+}
+
+body {
+  margin: 0;
+  padding: 32px 16px;
+  background: var(--page);
+  color: var(--text);
 }
 
 h1 {
+  margin: 0 0 24px;
+  font-size: 1.5rem;
   text-align: center;
 }
 
 .app {
   max-width: 450px;
-  min-width: 320px;
   margin: 0 auto;
+  display: grid;
+  gap: 12px;
 }
 
 .card {
-  margin: 0 0 15px;
-  padding: 10px;
-  border: dotted 1px black;
+  padding: 16px;
+  background: var(--surface);
+  border: solid 1px var(--border);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px var(--shadow);
   display: grid;
-  justify-items: center;
   align-items: center;
-  grid-template-columns: max-content 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 2px 2px;
+  grid-template-columns: 72px 3.5rem 5.5rem 6rem;
+  justify-content: center;
+  gap: 4px 20px;
   grid-auto-flow: row;
   grid-template-areas:
     "avatar time paid credit"
@@ -31,13 +50,19 @@ h1 {
 
 .avatar {
   grid-area: avatar;
-  align-self: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   text-align: center;
-  gap: 4px;
-  padding: 4px 10px 0;
+  gap: 6px;
+  font-size: 0.8125rem;
+}
+
+.avatar img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .time {
@@ -52,8 +77,8 @@ h1 {
   grid-area: credit;
 }
 
-.second-v {
-  grid-area: second-v;
+.time-v {
+  grid-area: time-v;
 }
 
 .paid-v {
@@ -65,33 +90,29 @@ h1 {
 }
 
 .d {
-  font-weight: bold;
+  color: var(--muted);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .v {
+  font-weight: bold;
   white-space: nowrap;
 }
 
 @media screen and (max-width: 550px) {
   .card {
-    gap: 4px 12px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    padding: 12px;
+    grid-template-columns: 64px 5.75rem 5rem;
+    gap: 6px 12px;
     grid-template-areas:
       "avatar time time-v"
-      "avatar  paid paid-v"
-      "avatar  credit credit-v";
-  }
-
-  .avatar {
-    padding: 4px 0 0;
-  }
-
-  .d {
-    justify-self: right;
+      "avatar paid paid-v"
+      "avatar credit credit-v";
   }
 
   .v {
-    justify-self: left;
+    justify-self: end;
   }
 }
